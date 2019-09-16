@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>企业登录页面</title>
+
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Styles -->
+    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/helper.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body class="bg-primary">
+
+    <div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <a href="#"><span>E轻学</span></a>
+                        </div>
+                        <div class="login-form">
+                            <h4>企业登录页面</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label>公司名称</label>
+                                    <input id="name" type="text" class="form-control" placeholder="公司名称">
+                                </div>
+                                <div class="form-group">
+                                    <label>密码</label>
+                                    <input id="pwd" type="password" class="form-control" placeholder="密码">
+                                    <span id="error" class="text-danger"></span>
+                                </div>
+                                <div class="checkbox">
+                                    <label class="pull-right">
+										<a href="page-reset-password.html">忘记密码?</a>
+									</label>
+
+                                </div>
+<!--                                <button id="loginbtn" type="button" class="btn btn-primary btn-flat m-b-30 m-t-30">登录</button>-->
+                                <input id="loginbtn" type="button" class="btn btn-primary btn-flat m-b-30 m-t-30" value="登录">
+                                <div class="register-link m-t-15 text-center">
+                                    <p>还没有账号 ? <a href="page-register.html"> 注册</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script>
+
+        $(function(){
+
+            function clear() {//清除错误信息
+
+                var name=$("#name").val();//获取页面中登录名和密码
+
+                var pwd=$("#pwd").val();
+
+                if ($('#error').val().trim().length < 1) {//判断错误信息是否为空
+
+                    $("#error").text("");
+                }
+            }
+            $("#name").focus(function() {
+                clear();
+            });
+
+            $("#pwd").focus(function() {
+                clear();
+            });
+
+
+            $("#loginbtn").click(
+
+            function (){
+
+                var name=$("#name").val();//获取页面中登录名和密码
+
+                var pwd=$("#pwd").val();
+
+                if(name===""|| pwd===""){//判断两个均不为空（其他判断规则在其输入时已经判断）
+
+                    $("#error").text("账号密码均不能为空！");
+
+                    return false;
+
+                }else{//以上均符合要求，则调用登录esb接口
+
+                    // $.post("192.168.0.163:8080/e-learning/login",
+                    //     {
+                    //         username:name,
+                    //         password:pwd
+                    //     },
+                    //     function(data,status){
+                    //         alert("Data: " + data + "\nStatus: " + status);
+                    //     });
+                    $.ajax({
+
+                        url:'http://106.13.185.61:8080/e-learning/cpyLogin',//相对应的esb接口地址
+
+                        data:{"name":name,"password":pwd},//向服务器（接口）传递的参数
+
+                        type:'POST',
+
+                        dataType:'json',
+
+                        success:function(data){//服务器（接口）返回来的数据
+
+                            if(data.code===100){//如果返回来的信息说明提交的信息为正确的
+
+                                window.location.href='index.html?name='+name;//正确登录后页面跳转至
+
+                            }
+
+                            else{//如果返回来的信息说明提供的信息为错误的
+
+                                $("#error").text("账号或密码错误！");
+
+                                // $("#name").val("");
+                                //
+                                // $("#pwd").val("");
+
+                                return false;
+
+                            }
+
+                        },
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert("连接失败");
+                            console.log(XMLHttpRequest.status);
+                            console.log(XMLHttpRequest.readyState);
+                            console.log(textStatus);
+
+                        }
+
+                    })
+                }
+
+
+
+            }
+
+        );
+
+        /*直接点击enter免除手动点击登录按钮*/
+
+        $(document).keyup(function(event){
+
+            if(event.keyCode ===13){
+
+                $("#loginbtn").trigger("click");
+
+            }
+
+        });
+        })
+    </script>
+
+</body>
+
+</html>

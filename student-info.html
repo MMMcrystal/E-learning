@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>E轻学</title>
+
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Toastr -->
+    <link href="assets/css/lib/toastr/toastr.min.css" rel="stylesheet">
+    <!-- Sweet Alert -->
+    <link href="assets/css/lib/sweetalert/sweetalert.css" rel="stylesheet">
+    <!-- Range Slider -->
+    <link href="assets/css/lib/rangSlider/ion.rangeSlider.css" rel="stylesheet">
+    <link href="assets/css/lib/rangSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+    <!-- Bar Rating -->
+    <link href="assets/css/lib/barRating/barRating.css" rel="stylesheet">
+    <!-- Nestable -->
+    <link href="assets/css/lib/nestable/nestable.css" rel="stylesheet">
+    <!-- JsGrid -->
+    <link href="assets/css/lib/jsgrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/jsgrid/jsgrid.min.css" type="text/css" rel="stylesheet" />
+    <!-- Datatable -->
+    <link href="assets/css/lib/data-table/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/data-table/buttons.bootstrap.min.css" rel="stylesheet" />
+    <!-- Calender 2 -->
+    <link href="assets/css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Weather Icon -->
+    <link href="assets/css/lib/weather-icons.css" rel="stylesheet" />
+    <!-- Owl Carousel -->
+    <link href="assets/css/lib/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/css/lib/owl.theme.default.min.css" rel="stylesheet" />
+    <!-- Select2 -->
+    <link href="assets/css/lib/select2/select2.min.css" rel="stylesheet">
+    <!-- Chartist -->
+    <link href="assets/css/lib/chartist/chartist.min.css" rel="stylesheet">
+    <!-- Calender -->
+    <link href="assets/css/lib/calendar/fullcalendar.css" rel="stylesheet" />
+
+    <!-- Common -->
+    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/menubar/sidebar.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/helper.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+        <div class="nano-content">
+            <div class="logo">
+                <a href="index.html">
+                    <!-- <img src="assets/images/logo.png" alt="" /> -->
+                    <span>E轻学</span>
+                </a>
+            </div>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="ti-home"></i> 主页
+                    </a>
+                </li>
+
+                <li class="label">管理</li>
+                <li>
+                    <a class="sidebar-sub-toggle">
+                        <i class="ti-bar-chart-alt"></i> 学员管理
+                        <span class="sidebar-collapse-icon ti-angle-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="student-info.html" class="active">学生信息管理</a>
+                        </li>
+                        <li>
+                            <a href="student-plan.html">学生学习计划管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle">
+                        <i class="ti-layout"></i> 线上课程管理
+                        <span class="sidebar-collapse-icon ti-angle-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="online-list.html">课程列表</a>
+                        </li>
+                        <li>
+                            <a href="online-exam.html">考试管理</a>
+                        </li>
+
+                        <li>
+                            <a href="online-evaluation.html">评价记录</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a class="sidebar-sub-toggle">
+                        <i class="ti-direction-alt"></i> 线下课程管理
+                        <span class="sidebar-collapse-icon ti-angle-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="offline-list.html">课程列表</a>
+                        </li>
+                        <li>
+                            <a href="offline-notice.html">通知管理</a>
+                        </li>
+                        <li>
+                            <a href="offline-evaluation.html">反馈记录</a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="live.html">
+                        <i class="ti-blackboard"></i> 直播管理</a>
+                </li>
+                <li>
+                    <a href="discuss.html">
+                        <i class="ti-user"></i> 讨论管理</a>
+                </li>
+
+
+                <li class="label">Form</li>
+                <li>
+                    <a href="form.html">
+                        <i class="ti-view-list-alt"></i> 报表 </a>
+                </li>
+                <li class="label">账户</li>
+
+                <li>
+                    <a href="page-reset-password.html">
+                        <i class="ti-settings"></i>企业信息修改</a>
+                </li>
+
+                <li>
+                    <a href="page-login.html">
+                        <i class="ti-close"></i> 退出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /# sidebar -->
+
+
+<div class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="float-left">
+                    <div class="hamburger sidebar-toggle">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div class="float-right">
+                    <div class="dropdown dib">
+                        <div class="header-icon" data-toggle="dropdown">
+                            <i class="ti-bell"> 通知</i>
+                        </div>
+                    </div>
+                    <div class="dropdown dib">
+                        <div class="header-icon" data-toggle="dropdown">
+                            <i class="ti-email"> 讨论</i>
+                        </div>
+                    </div>
+                    <div class="dropdown dib">
+                        <div class="header-icon" data-toggle="dropdown">
+                                <span class="user-avatar">John
+                                    <i class="ti-angle-down f-s-10"></i>
+                                </span>
+                            <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-content-heading">
+                                    <span class="text-left">Upgrade Now</span>
+                                    <p class="trial-day">30 Days Trail</p>
+                                </div>
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-user"></i>
+                                                <span>Profile</span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-email"></i>
+                                                <span>Inbox</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-settings"></i>
+                                                <span>Setting</span>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-lock"></i>
+                                                <span>Lock Screen</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ti-power-off"></i>
+                                                <span>Logout</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content-wrap">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Hello, <span>Welcome Here</span></h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+                <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Table-Row-Select</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
+            </div>
+            <!-- /# row -->
+            <section id="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Bootstrap Data Table </h4>
+
+                            </div>
+                            <div class="card-body">
+                                <input type="text" id="ajaxCpyid" hidden>
+                                <button id="addBtn">添加</button>
+                                <div class="table-responsive">
+                                    <table id="Table" class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th  style="display: none">#</th>
+                                            <th style="padding-left: 40px;">姓名</th>
+                                            <th>邮箱</th>
+                                            <th>电话</th>
+                                            <th>QQ</th>
+                                            <th style="width: 150px;">详情&nbsp;</th>
+                                            <th style="width: 150px;">修改</th>
+                                            <th  style="padding-right: 40px; width: 100px;">删除 </th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <tr id="addstu" class="jsgrid-insert-row" style="display: none">
+                                            <td class="jsgrid-cell"  style="display: none"></td>
+                                            <td class="jsgrid-cell" style="width: 150px;"><input type="text" id="inputName" placeholder="请输入姓名"></td>
+                                            <td class="jsgrid-cell" style="width: 200px;"><input type="text" id="inputEmail" placeholder="请输入邮箱"></td>
+                                            <td class="jsgrid-cell" style="width: 200px;"><input type="text" id="inputPhone" placeholder="请输入手机号"></td>
+                                            <td class="jsgrid-cell"></td>
+                                            <td class="jsgrid-cell"></td>
+                                            <td class="jsgrid-cell" style="width: 100px; padding: 25px;"><a href="javascript:;" class="ti-check" id="ticheck">确认新建</a>  </td>
+                                            <td class="jsgrid-cell" style="width: 100px; padding: 25px;"><a href="javascript:;" class="ti-close" id="ticlose">取消</a></td>
+                                        </tr>
+
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# card -->
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer">
+                            <p>2019 © E-learning</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script type="text/javascript">//登陆状态
+$(function(){
+        var linka = $('.nano-content a');//获取侧栏里的所有的a
+        console.log(linka);
+        var urlName= window.location.search;
+        console.log(urlName);
+        //for循环所有a标签
+        for(var i = 0;i<linka.length;i++){
+            var hrefs = linka[i].getAttribute('href')+urlName;
+            //把拼好的url设置到所有的a标签的href上,
+            linka[i].setAttribute('href',hrefs);
+        }
+        var cpyName = urlName.split("=")[1];
+        console.log(cpyName);
+        cpyName = decodeURI(cpyName);//将url中的编码转化为汉字
+        console.log(cpyName);
+
+        $.ajax({//获取企业id
+
+            url:'http://106.13.185.61:8080/e-learning/webGetCpyId',//相对应的esb接口地址
+
+            data:{"name":cpyName},//向服务器（接口）传递的参数
+
+            type:'GET',
+
+            dataType:'json',
+
+            success:function(data){//服务器（接口）返回来的数据
+
+                if(data.code===100){//如果返回来的信息说明提交的信息为正确的
+
+                    var cpyid = data.data.list[0].id;
+
+                    console.log(cpyid);
+
+                    $("#ajaxCpyid").val(cpyid);
+
+                    console.log("第二个ajax开始前")
+
+                    $.ajax({//获取学员用户列表
+
+                        url:'http://106.13.185.61:8080/e-learning/webGetAllStudent',//相对应的esb接口地址
+
+                        data:{"cpyid":cpyid},//向服务器（接口）传递的参数
+
+                        type:'GET',
+
+                        dataType:'json',
+
+                        success:function(data2){//服务器（接口）返回来的数据
+
+                            if(data2.code===100){//如果返回来的信息说明提交的信息为正确的
+                                console.log(data2.data.student);
+                                for (var i=0;i<$(data2.data.student).length;i++){
+
+                                    dlist2=data2.data.student[i];
+                                    console.log("cheng");
+                                    console.log(dlist2);
+                                    $('<tr></tr>')
+                                        .append('<th  style="display: none">'+dlist2.id+'</th>')
+                                        .append('<td style="padding-left: 40px;">'+dlist2.stuName+'</td>')
+                                        .append('<td>'+dlist2.stuEmail+'</td>')
+                                        .append('<td>'+dlist2.stuPhone+'</td>')
+                                        .append('<td>'+dlist2.stuQq+'</td>')
+                                        .append('<td><a href="#" id="check'+dlist2.id+'">详情</a></td>')
+                                        .append('<td><a href="javascript:;" class="ti-settings setStu"> 修改</a></td>')
+                                        .append('<td style="padding-right: 40px;"><a href="javascript:;" class="ti-close delete"">删除</a></td>')
+                                        .appendTo('#Table>tbody');
+
+                                }
+
+                            }
+                            else{
+                                console.log("meiyou")
+                            }
+
+                        },
+                        error : function(XMLHttpRequest, textStatus, errorThrown) {
+                            alert("连接数据库失败");
+                            console.log(XMLHttpRequest.status);
+                            console.log(XMLHttpRequest.readyState);
+                            console.log(textStatus);
+                            return false;
+                        }
+
+                    });
+                }
+
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("连接数据库失败");
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+                return false;
+            }
+
+        });
+        console.log("结束id")
+
+
+    }
+);
+
+</script>
+<script>
+    //用户名验证
+    function checkUsername(id, info) {
+        var reg = /^[\u4e00-\u9fa50-9a-zA-Z]{2,20}$/;
+        var $username = $(id).val();
+        if(!reg.test($username)) {
+      //      setInfo(info, "请输入合法的名称");
+            return false;
+        }
+        return true;
+    }
+
+
+    //邮箱验证
+    function checkEmail(id, info) {
+        var reg = /^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+        var $email = $(id).val();
+        if(!reg.test($email)) {
+         //   setInfo(info, "邮箱格式不正确");
+            return false;
+        }
+        return true;
+    }
+
+    //手机号验证
+    function checkTel(id, info) {
+        var reg = /^[1][0-9]{10}$/;
+        var $tel = $(id).val();
+        if(!reg.test($tel)) {
+          //  setInfo(info, "手机号格式不正确");
+            return false;
+        }
+        return true;
+    }
+
+
+    $(document).on("click","#addBtn",function() {//显示添加
+        $('#addstu').toggle();//切换显示与否
+        });
+    $(document).on("click","#ticheck",function() {//添加
+        if (checkUsername("#inputName")===false) {
+            alert("请输入真实姓名");
+            return false
+        }if(checkEmail("#inputEmail")===false){
+            alert("请输入正确邮箱");
+            return false
+        }if(checkTel("#inputPhone")===false){
+            alert("请输入正确的手机号");
+            return false
+        }
+        else{
+
+            $.ajax({
+
+                url:'http://106.13.185.61:8080/e-learning/webStudentHandle',//相对应的esb接口地址
+
+                data:{"stuName":$("#inputName").val(),"stuPassword":"000000","stuEmail":$("#inputEmail").val(),"stuPhone":$("#inputPhone").val(),"cpyId":$("#ajaxCpyid").val()},//向服务器（接口）传递的参数
+
+                type:'POST',
+
+                dataType:'json',
+
+                success:function(data){//服务器（接口）返回来的数据
+
+                    if(data.code===100){//如果返回来的信息说明提交的信息为正确的
+
+                        console.log(data.data.student);
+                        alert("添加成功");
+
+                        $('<tr></tr>')
+                            .append('<td style="display: none">'+data.data.student.id+'</td>')
+                            .append('<td style="padding-left: 40px;">'+data.data.student.stuName+'</td>')
+                            .append('<td>'+data.data.student.stuEmail+'</td>')
+                            .append('<td>'+data.data.student.stuPhone+'</td>')
+                            .append('<td>'+data.data.student.stuQq+'</td>')
+                            .append('<td><a href="#">详情</a></td>')
+                            .append('<td><a href="javascript:;" class="ti-settings setStu">  修改</a></td>')
+                            .append('<td style="padding-right: 40px;"><a href="javascript:;" class="ti-close delete"">删除</a></td>')
+                            .appendTo('#Table>tbody');
+
+                        $("#inputName").val('');
+                        $("#inputEmail").val('');
+                        $("#inputPhone").val('');
+
+                    }
+
+                    else{//如果返回来的信息说明提供的信息为错误的
+
+                        alert(data.data.message);
+
+                        // $("#inputPassword").val("");
+                        //
+                        // $("#inputRepassword").val("");
+
+                        return false;
+
+                    }
+
+                },
+                error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert("失败");
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+
+                }
+
+            })
+
+        }
+        //ajax alert("请输入正确的信息")
+        });
+    $(document).on("click","#ticlose",function() {//取消
+        $("#inputName").val("");
+        $("#inputEmail").val("");
+        $("#inputPhone").val("");
+        $("#inputQq").val("");
+        $('#addstu').css('display','none');
+    });
+    $(document).on("click",".delete",function() {//删除
+
+        var $tr = $(this).parent().parent();
+
+        var $stuId = $tr.children(':first').text();
+
+        var stuId = parseInt($stuId);
+
+        $.ajax({
+
+            url:'http://192.168.0.159:8080/e-learning/webStudentHandle',//相对应的esb接口地址
+
+            data:{_method:"DELETE","id":stuId},//向服务器（接口）传递的参数
+
+            type:'POST',
+
+            dataType:'json',
+
+            success:function(data){//服务器（接口）返回来的数据
+           //     console.log(typeof ($stuId));
+                if(data.code===100){//如果返回来的信息说明提交的信息为正确的
+
+                    alert("删除成功");
+
+                  //  $tr.remove();
+
+                }
+
+                else{//如果返回来的信息说明提供的信息为错误的
+
+                    alert(data.message);
+
+                    return false;
+
+                }
+
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("失败");
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+
+            }
+
+        })
+
+    });
+
+
+</script>
+
+<!-- Common -->
+<script src="assets/js/lib/jquery.min.js"></script>
+<script src="assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="assets/js/lib/menubar/sidebar.js"></script>
+<script src="assets/js/lib/preloader/pace.min.js"></script>
+<script src="assets/js/lib/bootstrap.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<!-- Calender -->
+<script src="assets/js/lib/jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/js/lib/moment/moment.js"></script>
+<script src="assets/js/lib/calendar/fullcalendar.min.js"></script>
+<script src="assets/js/lib/calendar/fullcalendar-init.js"></script>
+
+<!--  Flot Chart -->
+<script src="assets/js/lib/flot-chart/excanvas.min.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.time.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.stack.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.resize.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.crosshair.js"></script>
+<script src="assets/js/lib/flot-chart/curvedLines.js"></script>
+<script src="assets/js/lib/flot-chart/flot-tooltip/jquery.flot.tooltip.min.js"></script>
+<script src="assets/js/lib/flot-chart/flot-chart-init.js"></script>
+
+
+<!--  Knob -->
+<script src="assets/js/lib/knob/jquery.knob.min.js "></script>
+<script src="assets/js/lib/knob/knob.init.js "></script>
+
+<!--  Morris -->
+<script src="assets/js/lib/morris-chart/raphael-min.js"></script>
+<script src="assets/js/lib/morris-chart/morris.js"></script>
+<script src="assets/js/lib/morris-chart/morris-init.js"></script>
+
+<!--  Peity -->
+<script src="assets/js/lib/peitychart/jquery.peity.min.js"></script>
+<script src="assets/js/lib/peitychart/peitychart.init.js"></script>
+
+<!--  Sparkline -->
+<script src="assets/js/lib/sparklinechart/jquery.sparkline.min.js"></script>
+<script src="assets/js/lib/sparklinechart/sparkline.init.js"></script>
+
+<!-- Select2 -->
+<script src="assets/js/lib/select2/select2.full.min.js"></script>
+
+<!--  Validation -->
+<script src="assets/js/lib/form-validation/jquery.validate.min.js"></script>
+<script src="assets/js/lib/form-validation/jquery.validate-init.js"></script>
+
+<!--  Circle Progress -->
+<script src="assets/js/lib/circle-progress/circle-progress.min.js"></script>
+<script src="assets/js/lib/circle-progress/circle-progress-init.js"></script>
+
+<!--  Vector Map -->
+<script src="assets/js/lib/vector-map/jquery.vmap.js"></script>
+<script src="assets/js/lib/vector-map/jquery.vmap.min.js"></script>
+<script src="assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.algeria.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.argentina.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.brazil.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.france.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.germany.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.greece.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.iran.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.iraq.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.russia.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.tunisia.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.europe.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.usa.js"></script>
+
+<!--  Simple Weather -->
+<script src="assets/js/lib/weather/jquery.simpleWeather.min.js"></script>
+<script src="assets/js/lib/weather/weather-init.js"></script>
+
+<!--  Owl Carousel -->
+<script src="assets/js/lib/owl-carousel/owl.carousel.min.js"></script>
+<script src="assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
+
+<!--  Calender 2 -->
+<script src="assets/js/lib/calendar-2/moment.latest.min.js"></script>
+<script src="assets/js/lib/calendar-2/pignose.calendar.min.js"></script>
+<script src="assets/js/lib/calendar-2/pignose.init.js"></script>
+
+
+<!-- Datatable -->
+<script src="assets/js/lib/data-table/datatables.min.js"></script>
+<script src="assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.flash.min.js"></script>
+<script src="assets/js/lib/data-table/jszip.min.js"></script>
+<script src="assets/js/lib/data-table/pdfmake.min.js"></script>
+<script src="assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="assets/js/lib/data-table/datatables-init.js"></script>
+
+<!-- JS Grid -->
+<script src="assets/js/lib/jsgrid/db.js"></script>
+<script src="assets/js/lib/jsgrid/jsgrid.core.js"></script>
+<script src="assets/js/lib/jsgrid/jsgrid.load-indicator.js"></script>
+<script src="assets/js/lib/jsgrid/jsgrid.load-strategies.js"></script>
+<script src="assets/js/lib/jsgrid/jsgrid.sort-strategies.js"></script>
+<script src="assets/js/lib/jsgrid/jsgrid.field.js"></script>
+<script src="assets/js/lib/jsgrid/fields/jsgrid.field.text.js"></script>
+<script src="assets/js/lib/jsgrid/fields/jsgrid.field.number.js"></script>
+<script src="assets/js/lib/jsgrid/fields/jsgrid.field.select.js"></script>
+<script src="assets/js/lib/jsgrid/fields/jsgrid.field.checkbox.js"></script>
+<script src="assets/js/lib/jsgrid/fields/jsgrid.field.control.js"></script>
+<script src="assets/js/lib/jsgrid/jsgrid-init.js"></script>
+
+<!--  Datamap -->
+<script src="assets/js/lib/datamap/d3.min.js"></script>
+<script src="assets/js/lib/datamap/topojson.js"></script>
+<script src="assets/js/lib/datamap/datamaps.world.min.js"></script>
+<script src="assets/js/lib/datamap/datamap-init.js"></script>
+
+<!--  Nestable -->
+<script src="assets/js/lib/nestable/jquery.nestable.js"></script>
+<script src="assets/js/lib/nestable/nestable.init.js"></script>
+
+<!--ION Range Slider JS-->
+<script src="assets/js/lib/rangeSlider/ion.rangeSlider.min.js"></script>
+<script src="assets/js/lib/rangeSlider/moment.js"></script>
+<script src="assets/js/lib/rangeSlider/moment-with-locales.js"></script>
+<script src="assets/js/lib/rangeSlider/rangeslider.init.js"></script>
+
+<!-- Bar Rating-->
+<script src="assets/js/lib/barRating/jquery.barrating.js"></script>
+<script src="assets/js/lib/barRating/barRating.init.js"></script>
+
+<!-- jRate -->
+<script src="assets/js/lib/rating1/jRate.min.js"></script>
+<script src="assets/js/lib/rating1/jRate.init.js"></script>
+
+<!-- Sweet Alert -->
+<script src="assets/js/lib/sweetalert/sweetalert.min.js"></script>
+<script src="assets/js/lib/sweetalert/sweetalert.init.js"></script>
+
+<!-- Toastr -->
+<script src="assets/js/lib/toastr/toastr.min.js"></script>
+<script src="assets/js/lib/toastr/toastr.init.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  Dashboard 1 -->
+<script src="assets/js/dashboard1.js"></script>
+<script src="assets/js/dashboard2.js"></script>
+
+</body>
+
+</html>

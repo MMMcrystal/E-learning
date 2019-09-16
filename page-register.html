@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>企业注册页面</title>
+
+    <!-- ================= Favicon ================== -->
+    <!-- Standard -->
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+
+    <!-- Styles -->
+    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/lib/helper.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+
+    <div class="unix-login">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            <a href="#"><span>E轻学</span></a>
+                        </div>
+                        <div class="login-form">
+                            <h4>企业注册</h4>
+                            <form id="formId">
+                                <div class="form-group">
+                                    <label>公司名称*</label>
+                                    <input id="inputName" type="text" class="form-control" placeholder="请输入公司名称">
+                                    <span id="errorName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>邮箱*</label>
+                                    <input id="inputEmail" type="email" class="form-control" placeholder="请输入邮箱">
+                                    <span id="errorEmail" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>电话*</label>
+                                    <input id="inputPhone" type="text" class="form-control" placeholder="请输入手机号">
+                                    <span id="errorPhone" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>密码*</label>
+                                    <input id="inputPassword" type="password" class="form-control" placeholder="请输入密码">
+                                    <span id="errorPassword" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>确认密码*</label>
+                                    <input id="inputRepassword" type="password" class="form-control" placeholder="请重新输入密码">
+                                    <span id="errorRepassword" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>公司地址</label>
+                                    <input id="inputAddr" type="text" class="form-control" placeholder="请输入公司地址（选填）">
+                                    <span id="errorrAddr" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label>公司简介</label>
+                                    <textarea id="inputIntro" class="form-control" placeholder="请输入公司简介（选填）" style="height: 150px;"></textarea>
+                                    <span id="errorIntro" class="text-danger"></span>
+                                </div>
+                                <button id="registerbtn" type="button" class="btn btn-primary btn-flat m-b-30 m-t-30">注册</button>
+                                <div class="register-link m-t-15 text-center">
+                                    <p> 已经有账户了 ?  <a href="page-login.html">登录</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="assets/js/lib/jquery.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <script type="text/javascript">
+        $(function() {
+
+            //用户名
+            $("#inputName").blur(function() {
+                //对用户名进行验证
+                checkUsername("#inputName", "#errorName");
+            }).focus(function() {
+                clearInfo("#errorName");
+            });
+            //验证
+            function checkUsername(id, info) {
+                var reg = /^[\u4e00-\u9fa50-9a-zA-Z]{2,20}$/;
+                var $username = $(id).val();
+                if(!reg.test($username)) {
+                    setInfo(info, "请输入合法的名称");
+                    return false;
+                }
+                $.ajax({//用户名查重
+
+                    url:'http://106.13.185.61:8080/e-learning/cpyLogin',//相对应的esb接口地址
+
+                    data:{"name":$username},//向服务器（接口）传递的参数
+
+                    type:'GET',
+
+                    dataType:'json',
+
+                    success:function(data){//服务器（接口）返回来的数据
+
+                        if(data.code===200){//如果返回来的信息说明提交的信息为正确的
+
+                            setInfo(info, "用户名已存在");
+
+                            $("#inputName").val("");
+
+                            return false;
+
+                        }
+
+                    },
+                    error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("失败");
+                        console.log(XMLHttpRequest.status);
+                        console.log(XMLHttpRequest.readyState);
+                        console.log(textStatus);
+                        return false;
+                    }
+
+                });
+                return true;
+            }
+
+            //密码
+            $("#inputPassword").blur(function() {
+                //对密码进行验证
+                checkPassword("#inputPassword", "#errorPassword");
+            }).focus(function() {
+                clearInfo("#errorPassword");
+            });
+            //验证
+            function checkPassword(id, info) {
+                var reg = /^[a-zA-Z][\w]{5,11}$/;
+                var $password = $(id).val();
+                if(!reg.test($password)) {
+                    setInfo(info, "密码以字母开头，由6到12位字母、数字或下划线构成");
+                    return false;
+                }
+                return true;
+            }
+
+            //重复密码
+            $("#inputRepassword").blur(function() {
+                //对重复密码进行验证
+                checkPasswordAgain("#inputPassword", "#inputRepassword", "#errorRepassword");
+            }).focus(function() {
+                clearInfo("#errorRepassword");
+            });
+            //验证
+            function checkPasswordAgain(pwd1, pwd2, info) {
+                var $pwd1 = $(pwd1).val();
+                var $pwd2 = $(pwd2).val();
+                if($pwd1 !== $pwd2) {
+                    setInfo(info, "重复密码与原密码不一致");
+                    return false;
+                }
+                var reg = /^[a-zA-Z][\w]{5,11}$/;
+                if(!reg.test($pwd2)) {
+                    setInfo(info, "重复密码以字母开头，由6到12位字母、数字或下划线构成");
+                    return false;
+                }
+                return true;
+            }
+
+            //邮箱
+            $("#inputEmail").blur(function() {
+                //对邮箱进行验证
+                checkEmail("#inputEmail", "#errorEmail");
+            }).focus(function() {
+                clearInfo("#errorEmail");
+            });
+            //验证
+            function checkEmail(id, info) {
+                var reg = /^[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?$/;
+                var $email = $(id).val();
+                if(!reg.test($email)) {
+                    setInfo(info, "邮箱格式不正确");
+                    return false;
+                }
+                return true;
+            }
+
+            //手机号
+            $("#inputPhone").blur(function() {
+                //对手机号进行验证
+                checkTel("#inputPhone", "#errorPhone");
+            }).focus(function() {
+                clearInfo("#errorPhone");
+            });
+            //验证
+            function checkTel(id, info) {
+                var reg = /^[1][0-9]{10}$/;
+                var $tel = $(id).val();
+                if(!reg.test($tel)) {
+                    setInfo(info, "手机号格式不正确");
+                    return false;
+                }
+                return true;
+            }
+
+            //QQ
+            // $("#qq").blur(function() {
+            //     //对QQ号进行验证
+            //     checkQq("#qq", "#qqInfo");
+            // }).focus(function() {
+            //     clearInfo("#qqInfo");
+            // });
+            // //验证
+            // function checkQq(id, info) {
+            //     var reg = /^[1-9][0-9]{4,}$/;
+            //     var $qq = $(id).val();
+            //     if(!reg.test($qq)) {
+            //         setInfo(info, "QQ号格式不正确");
+            //         return false;
+            //     }
+            //     return true;
+            // }
+
+            //设置错误信息
+            function setInfo(id, info) {
+                $(id).text(info);
+            }
+
+            //清空错误信息
+            function clearInfo(id) {
+                $(id).text("");
+            }
+
+            function checkAll() {
+                //					alert("222");
+                // alert(checkUsername("#inputName", "#errorName"));
+                // alert(checkPassword("#inputPassword", "#errorPassword"));
+                // alert(checkPasswordAgain("#inputPassword", "#inputRepassword", "#errorRepassword"));
+                // alert(checkEmail("#inputEmail", "#errorEmail"));
+                // alert(checkTel("#inputPhone", "#errorPhone"));
+                if(checkUsername("#inputName", "#errorName") && checkEmail("#inputEmail", "#errorEmail")&& checkTel("#inputPhone", "#errorPhone") && checkPassword("#inputPassword", "#errorPassword") && checkPasswordAgain("#inputPassword", "#inputRepassword", "#errorRepassword")) {
+                    return true;
+                }
+                return false;
+            };
+
+            $("#registerbtn").click(
+
+                function (){
+
+                    if(!checkAll()){//判断所有条件成立（其他判断规则在其输入时已经判断）
+
+                        alert("请正确填写信息！");
+
+                        return false;
+
+                    }else{//以上均符合要求，则调用登录esb接口
+
+                        var Name=$("#inputName").val();
+                        var Phone=$("#inputPhone").val();
+                        var Email=$("#inputEmail").val();
+                        var Password=$("#inputPassword").val();
+                        var Addr=$("#inputAddr").val();
+                        var Intro=$("#inputIntro").val();
+                        $.ajax({
+
+                            url:'http://106.13.185.61:8080/e-learning/registry',//相对应的esb接口地址
+
+                            data:{"name":Name,"password":Password,"phone":Phone,"email":Email,"addr":Addr,"intro":Intro},//向服务器（接口）传递的参数
+
+                            type:'POST',
+
+                            dataType:'json',
+
+                            success:function(data){//服务器（接口）返回来的数据
+
+                                if(data.code===100){//如果返回来的信息说明提交的信息为正确的
+
+                                    alert("注册成功");
+
+                                    window.location.href='page-login.html';//正确登录后页面跳转至
+
+                                }
+
+                                else{//如果返回来的信息说明提供的信息为错误的
+
+                                    alert(data.data.message);
+
+                                    $("#inputPassword").val("");
+
+                                    $("#inputRepassword").val("");
+
+                                    return false;
+
+                                }
+
+                            },
+                            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                                alert("失败");
+                                console.log(XMLHttpRequest.status);
+                                console.log(XMLHttpRequest.readyState);
+                                console.log(textStatus);
+
+                            }
+
+                        })
+                    }
+
+
+
+                }
+
+            );
+
+            /*直接点击enter免除手动点击登录按钮*/
+
+            $(document).keyup(function(event){
+
+                if(event.keyCode ===13){
+
+                    $("#registerbtn").trigger("click");
+
+                }
+
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>
