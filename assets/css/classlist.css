@@ -1,0 +1,21 @@
+.classimg{
+    /*float: left;*/
+    padding: 10px;
+    margin: 10px;
+}
+.breadcrumb{
+    width: 250px;
+}
+.classInfo{
+    margin: 10px;
+    /*float:left;*/
+}
+.icons{
+    margin: 10px;
+}
+.editicon,.deleteicon{
+    padding: 20px;
+}
+.classtype{
+    margin: 20px 0;
+}

@@ -65,7 +65,7 @@
 <script src="assets/js/scripts.js"></script>
 <script type="text/javascript">//登陆状态
 $(function(){
-        var linka = $('.nano-content a');//获取侧栏里的所有的a
+        var linka = $('.nano-content a[class!="exit"]');//获取侧栏里的所有的a
         console.log(linka);
         var urlName= window.location.search;
         console.log(urlName);
@@ -173,7 +173,7 @@ $(function(){
                 </li>
 
                 <li>
-                    <a href="page-login.html">
+                    <a href="page-login.html" class="exit">
                         <i class="ti-close"></i> 退出</a>
                 </li>
             </ul>

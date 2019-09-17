@@ -156,7 +156,7 @@
                 </li>
 
                 <li>
-                    <a href="page-login.html">
+                    <a href="page-login.html" class="exit">
                         <i class="ti-close"></i> 退出</a>
                 </li>
             </ul>
@@ -297,15 +297,15 @@
                                         </thead>
 
                                         <tbody>
-                                        <tr id="addstu" class="jsgrid-insert-row" style="display: none">
-                                            <td class="jsgrid-cell"  style="display: none"></td>
+                                        <tr id="addstu" class="jsgrid-insert-row" style="display: none;">
+                                            <td class="jsgrid-cell" style="display: none"></td>
                                             <td class="jsgrid-cell" style="width: 150px;"><input type="text" id="inputName" placeholder="请输入姓名"></td>
                                             <td class="jsgrid-cell" style="width: 200px;"><input type="text" id="inputEmail" placeholder="请输入邮箱"></td>
                                             <td class="jsgrid-cell" style="width: 200px;"><input type="text" id="inputPhone" placeholder="请输入手机号"></td>
                                             <td class="jsgrid-cell"></td>
                                             <td class="jsgrid-cell"></td>
-                                            <td class="jsgrid-cell" style="width: 100px; padding: 25px;"><a href="javascript:;" class="ti-check" id="ticheck">确认新建</a>  </td>
-                                            <td class="jsgrid-cell" style="width: 100px; padding: 25px;"><a href="javascript:;" class="ti-close" id="ticlose">取消</a></td>
+                                            <td class="jsgrid-cell" style="padding-top: 15px;"><a href="javascript:;" class="ti-check" id="ticheck">确认新建</a></td>
+                                            <td class="jsgrid-cell" style="text-align:left;padding-top: 15px;padding-left: 15px;"><a href="javascript:;" class="ti-close" id="ticlose">取消</a></td>
                                         </tr>
 
 
@@ -337,7 +337,7 @@
 <script src="assets/js/scripts.js"></script>
 <script type="text/javascript">//登陆状态
 $(function(){
-        var linka = $('.nano-content a');//获取侧栏里的所有的a
+        var linka = $('.nano-content a[class!="exit"]');//获取侧栏里的所有的a
         console.log(linka);
         var urlName= window.location.search;
         console.log(urlName);

@@ -65,7 +65,7 @@
     <script src="assets/js/scripts.js"></script>
     <script type="text/javascript">//登陆状态
     $(function(){
-            var linka = $('.nano-content a');//获取侧栏里的所有的a
+            var linka = $('.nano-content a[class!="exit"]');//获取侧栏里的所有的a
             console.log(linka);
             var urlName= window.location.search;
             console.log(urlName);
@@ -79,22 +79,7 @@
     );
 
     </script>
-    $(function(){
-            var linka = $('.nano-content a');//获取id为content box里的所有的a
-            console.log(linka);
-            var urlName= window.location.search;
-            console.log(urlName);
-            //for循环所有a标签
-            for(var i = 0;i<linka.length;i++){
-                //获取a标签里的href，并加上从当前文件里获取到的pid 和cat_id  这里用到了getAttribute 属性 大家可以自己查看其用法
-                var hrefs = linka[i].getAttribute('href')+urlName;
-                //把拼好的url设置到所有的a票签的href上,这里用到了setAttribute 属性，不熟悉的可以查找一下用法
-                linka[i].setAttribute('href',hrefs);
-            }
-        }
-    );
 
-    </script>
 
     <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
         <div class="nano">
@@ -189,7 +174,7 @@
                     </li>
 
                     <li>
-                        <a href="page-login.html">
+                        <a href="page-login.html" class="exit">
                             <i class="ti-close"></i> 退出</a>
                     </li>
                 </ul>
