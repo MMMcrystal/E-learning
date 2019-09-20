@@ -511,7 +511,7 @@ $(function(){
 
                         $('<tr></tr>')
                             .append('<td style="display: none">'+data.data.student.id+'</td>')
-                            .append('<td style="padding-left: 40px;">'+data.data.student.stuName+'</td>')
+                            .append('<td style="padding-left: 40px;" class="stuName">'+data.data.student.stuName+'</td>')
                             .append('<td>'+data.data.student.stuEmail+'</td>')
                             .append('<td>'+data.data.student.stuPhone+'</td>')
                             .append('<td>'+data.data.student.stuQq+'</td>')
@@ -565,46 +565,46 @@ $(function(){
 
         var $stuId = $tr.children(':first').text();
 
+        var $stuname = $tr.children(':first').next().text();
+
         var stuId = parseInt($stuId);
+        if (confirm('确定删除'+$stuname+'吗？')) {
+            $.ajax({
 
-        $.ajax({
+                url: 'http://106.13.185.61:8080/e-learning/webStudentHandle',//相对应的esb接口地址
 
-            url:'http://106.13.185.61:8080/e-learning/webStudentHandle',//相对应的esb接口地址
+                data: {_method: "DELETE", "id": stuId},//向服务器（接口）传递的参数
 
-            data:{_method:"DELETE","id":stuId},//向服务器（接口）传递的参数
+                type: 'POST',
 
-            type:'POST',
+                dataType: 'json',
 
-            dataType:'json',
+                success: function (data) {//服务器（接口）返回来的数据
+                    //     console.log(typeof ($stuId));
 
-            success:function(data){//服务器（接口）返回来的数据
-           //     console.log(typeof ($stuId));
-                if(data.code===100){//如果返回来的信息说明提交的信息为正确的
+                    if (data.code === 100) {//如果返回来的信息说明提交的信息为正确的
 
-                    alert("删除成功");
 
-                    $tr.remove();
+                        $tr.remove();
+                    } else {//如果返回来的信息说明提供的信息为错误的
+
+                        alert(data.message);
+
+                        return false;
+
+                    }
+
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("失败");
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
 
                 }
 
-                else{//如果返回来的信息说明提供的信息为错误的
-
-                    alert(data.message);
-
-                    return false;
-
-                }
-
-            },
-            error : function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("失败");
-                console.log(XMLHttpRequest.status);
-                console.log(XMLHttpRequest.readyState);
-                console.log(textStatus);
-
-            }
-
-        })
+            })
+        }
 
     });
 
